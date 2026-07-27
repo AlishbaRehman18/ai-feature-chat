@@ -1,0 +1,71 @@
+#stateful-btn {
+    position: relative;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    background: black;
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+  }
+ 
+.spinner, .checkmark, .error-label {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 250ms ease, transform 250ms ease;
+  }
+  
+  .idle .label {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+
+  .loading .label {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  .loading .spinner {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+
+  .success .spinner {
+    opacity: 0;
+  }
+  
+  .success .checkmark {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+
+  .error .spinner {
+    opacity: 0;
+  }
+  
+  .error .error-label {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+
+  .error {
+    animation: shake 400ms cubic-bezier(.36,.07,.19,.97);
+  }
+  
+  @keyframes shake {
+    10%, 90% { transform: translateX(-2px); }
+    20%, 80% { transform: translateX(4px); }
+    30%, 50%, 70% { transform: translateX(-8px); }
+    40%, 60% { transform: translateX(8px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+    
